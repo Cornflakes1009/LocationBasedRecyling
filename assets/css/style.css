@@ -22,7 +22,13 @@ h1 {
     pointer-events: all !important;
     content: none !important;
 }
-
  ::before {
      content: none !important;
  }
+ .modal {
+     padding-bottom: 6%;
+ }
+ /* .btn-flat {
+     background-color: #f05a15;
+     color: white;
+ } */
