@@ -1,6 +1,6 @@
-img {
+.modal-action {
     width: 100%;
-    height: 100%;
+    height: 100%;;
 }
 html {
     background-color: #c0dfd9;
@@ -16,3 +16,13 @@ h1 {
 .green-color {
     color: #f05a15;
 }
+.check-box {
+    opacity: 1.0 !important;
+    position: relative !important;
+    pointer-events: all !important;
+    content: none !important;
+}
+
+ ::before {
+     content: none !important;
+ }
