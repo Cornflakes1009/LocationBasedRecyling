@@ -9,19 +9,15 @@ h1 {
     font-family: 'Arvo', serif;
     font-size: 90px;
 }
-#title {
+.title {
     background-color: white;
-    border-radius: 5px;
 }
 .green-color {
     color: #f05a15;
 }
-
 #map {
     height: 500px;
 }
-
-=======
 .check-box {
     opacity: 1.0 !important;
     position: relative !important;
