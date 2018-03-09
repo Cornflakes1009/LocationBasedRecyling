@@ -12,34 +12,70 @@
     <link href="https://fonts.googleapis.com/css?family=Arvo|Open+Sans" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
     <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
-    
+
     <title>Disposal Finder</title>
 </head>
 
 <body>
     <div class="container">
         <div class="row">
-
             <div id="title" class="section">
                 <h1 class="center">
                     <i class="fas fa-recycle green-color"></i> Disposal Finder</h1>
             </div>
         </div>
-
         <div class="row">
-            <div>
-                <div id="location-section" class="col s12 m3">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ex, ad? Placeat alias rerum quam quasi, delectus
-                    incidunt? Beatae sed libero, optio vitae non reprehenderit officiis omnis autem, iusto quo adipisci.</div>
-
+            <div id="location-section" class="col s12 m3">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ex, ad? Placeat alias rerum quam quasi, delectus incidunt?
+                Beatae sed libero, optio vitae non reprehenderit officiis omnis autem, iusto quo adipisci.</div>
+            <div id="google-map-section" class="col s12 m9">
+                <!-- Modal Trigger -->
+                <a href="#!" class="modal-action modal-close"></a>
+                <a class="waves-effect waves-light  modal-trigger" href="#modal1">
+                    <img class="modal-action" id="map" src='googleMapsPlaceholder.png' alt="Google Maps">
+                </a>
             </div>
+            <!-- Modal Structure -->
+            <div class="row">
 
-            <!-- <div id="google-map-section" class="col s12 m9">
-                <img src='googleMapsPlaceholder.png'>
-            </div> -->
+
             <div id="map" class="col s12 m9">
 
+                <div id="modal1" class="modal bottom-sheet">
+                    <div class="modal-content col m6 center">
+                        <h4 class="">Accepted Items</h4>
+                        <form action="/action_page.php" method="get">
+                            <label for="paper">Paper</label>
+                            <input class='check-box ' type="checkbox" name="paper" id="paper" value="paper">
+                            <label for="cardboard">Cardboard</label>
+                            <input class='check-box ' type="checkbox" name="cardboard" id="cardboard" value="cardboard">
+                            <label for="plastic">Plastic</label>
+                            <input class='check-box ' type="checkbox" name="plastic" id="plastic" value="plastic">
+                            <label for="glass">Glass</label>
+                            <input class='check-box ' type="checkbox" name="glass" id="glass" value="glass">
+                            <label for="aluminum">Aluminum</label>
+                            <input class='check-box ' type="checkbox" name="aluminum" id="aluminum" value="aluminum">
+                            <label for="steel">Steel</label>
+                            <input class='check-box ' type="checkbox" name="steel" id="steel" value="steel">
+                        </form>
+                    </div>
+                    <div class="modal-content col m6 center">
+                        <h4 class="">Recepticle Type</h4>
+                        <form action="/action_page.php" method="get">
+                            <label for="small">Small Can</label>
+                            <input class='check-box ' type="checkbox" name="small" id="small" value="small">
+                            <label for="large">Large Container</label>
+                            <input class='check-box ' type="checkbox" name="large" id="large" value="large">
+                            <label for="rolloff">Rolloff</label>
+                            <input class='check-box ' type="checkbox" name="rolloff" id="rolloff" value="rolloff">
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="#!" class="modal-action modal-close waves-effect waves-green btn btn-flat">Submit</a>
+                    </div>
+                </div>
             </div>
         </div>
+
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>

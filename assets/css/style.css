@@ -1,6 +1,6 @@
-img {
+.modal-action {
     width: 100%;
-    height: 100%;
+    height: 100%;;
 }
 html {
     background-color: #c0dfd9;
@@ -20,3 +20,21 @@ h1 {
 #map {
     height: 500px;
 }
+
+=======
+.check-box {
+    opacity: 1.0 !important;
+    position: relative !important;
+    pointer-events: all !important;
+    content: none !important;
+}
+ ::before {
+     content: none !important;
+ }
+ .modal {
+     padding-bottom: 6%;
+ }
+ /* .btn-flat {
+     background-color: #f05a15;
+     color: white;
+ } */
