@@ -30,6 +30,16 @@ h1 {
  .modal {
      padding-bottom: 6%;
  }
+ #add-location {
+    position: relative;
+    z-index: 2;
+    left: 35px;
+    top: 458px;
+    min-width: 135px;
+    color: white;
+    background-color: #f05a15;
+    border-radius: 15px;
+ }
  /* .btn-flat {
      background-color: #f05a15;
      color: white;

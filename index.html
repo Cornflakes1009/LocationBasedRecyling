@@ -17,30 +17,39 @@
 </head>
 
 <body>
-        <div id="" class="section title">
-                <h1 class="center">
-                    <i class="fas fa-recycle green-color"></i> Disposal Finder</h1>
-            </div>
+    <div id="" class="section title">
+        <h1 class="center">
+            <i class="fas fa-recycle green-color"></i> Disposal Finder</h1>
+    </div>
+
     <div class="container">
         <div class="row">
-            
+
         </div>
         <div class="row">
             <div id="location-section " class="col s12 m3 title">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ex, ad? Placeat alias rerum quam quasi, delectus incidunt?
                 Beatae sed libero, optio vitae non reprehenderit officiis omnis autem, iusto quo adipisci.</div>
+
             <!-- <div id="google-map-section" class="col s12 m9"> -->
-                <!-- Modal Trigger -->
-                <div id="map" class="col s12 m9"> <!--removed from live 44 right above the modeal id -->
-                <a href="#!" class="modal-action modal-close"></a>
-                <a class="waves-effect waves-light  modal-trigger" href="#modal1">
-                    <!-- <img class="modal-action" id="map" src='googleMapsPlaceholder.png' alt="Google Maps"> -->
-                </a>
+            <!-- Modal Trigger -->
+            <div>
+                <button id="add-location">Add</button>
+                <!-- removed from line 32 -->
+                <div id="map" class="col s12 m9">
+
+                    <!--removed from live 44 right above the modeal id -->
+                    <a href="#!" class="modal-action modal-close"></a>
+                    <a class="waves-effect waves-light  modal-trigger" href="#modal1">
+                        <!-- <img class="modal-action" id="map" src='googleMapsPlaceholder.png' alt="Google Maps"> -->
+                    </a>
+
+                </div>
             </div>
             <!-- Modal Structure -->
             <div class="row">
 
 
-            
+
 
                 <div id="modal1" class="modal bottom-sheet">
                     <div class="modal-content col m6 center">
@@ -83,7 +92,8 @@
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
     <script src="assets/javascript/logic.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVml7j3G3W3h1UFmhJLsQ-mj4zowGcy3A&callback=initMap&libraries=places" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVml7j3G3W3h1UFmhJLsQ-mj4zowGcy3A&callback=initMap&libraries=places"
+        async defer></script>
 </body>
 
 </html>
