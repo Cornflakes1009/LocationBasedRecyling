@@ -97,13 +97,85 @@ $( document ).ready(function() {
         messagingSenderId: "910518074335"
       };
       firebase.initializeApp(config);
+      var database = firebase.database();
     
-    
-      $("#map").on('click', function(){
+      $("#add-location").on('click', function(){
         // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
         $('#modal1').modal();
+        console.log('add button clicked');
       });
     
-    
-    
+      $('#submit-button').on('click', function(){
+        console.log('submit button clicked');
+
+        // container sizes
+        var small;
+        var large;
+        var rolloff;
+        var containerSize = [];
+        // checking the container check boxes
+        if ($('#small').is(":checked")){  
+          small = 'small';
+          containerSize.push(small);
+        }
+        if ($('#large').is(":checked")){  
+          large = 'large';
+          containerSize.push(large);
+        }
+        if ($('#rolloff').is(":checked")){ 
+          rolloff = 'rolloff';
+          containerSize.push(rolloff);
+        }
+        console.log(containerSize);
+      
+      // accepted at the location
+      var paper;
+      var cardboard;
+      var plastic;
+      var glass;
+      var aluminum;
+      var steel;
+      var acceptedItems = [];
+      // checking the accepted check boxes
+      if ($('#paper').is(":checked")){ 
+        paper = 'paper';
+        acceptedItems.push(paper);
+      }
+      if ($('#cardboard').is(":checked")){ 
+        cardboard = 'cardboard';
+        acceptedItems.push(cardboard);
+      }
+      if ($('#plastic').is(":checked")){ 
+        plastic = 'plastic';
+        acceptedItems.push(plastic);
+      }
+      if ($('#glass').is(":checked")){ 
+        glass = 'glass';
+        acceptedItems.push(glass);
+      }
+      if ($('#aluminum').is(":checked")){ 
+        aluminum = 'aluminum';
+        acceptedItems.push(aluminum);
+      }
+      if ($('#steel').is(":checked")){ 
+        steel = 'steel';
+        acceptedItems.push(steel);
+      }
+      // checking if the accepted items and container size arrays arrays are empty and if not, pushing them to firebase
+      if (containerSize.length > 0 && acceptedItems.length > 0){
+        console.log(containerSize, acceptedItems);
+        database.ref().push({
+          containerSize: containerSize,
+          acceptedItems: acceptedItems
+      });
+      }
+      // checking if the accepted items array is empty and if not, pushing that to firebase
+      // if (acceptedItems !== []){
+      //   database.ref().push({
+      //     acceptedItems: acceptedItems
+      // });
+      // }
+      console.log(acceptedItems);
+    })
+
     }); // end of document ready function

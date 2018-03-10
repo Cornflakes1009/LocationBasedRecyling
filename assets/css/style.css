@@ -39,8 +39,22 @@ h1 {
     color: white;
     background-color: #f05a15;
     border-radius: 15px;
+    text-align: center;
+    padding: 2px 0px;
  }
- /* .btn-flat {
-     background-color: #f05a15;
-     color: white;
- } */
+ /* Need work!!! 792 600 479 */ 
+ @media only screen and (max-width: 792px) {
+    h1 {
+        font-size: 80px;
+    }
+ }
+ @media only screen and (max-width: 600px) {
+    h1 {
+        font-size: 60px;
+    }
+ }
+ @media only screen and (max-width: 479px) {
+    h1 {
+        font-size: 50px;
+    }
+ }
