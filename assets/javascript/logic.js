@@ -185,7 +185,7 @@ $( document ).ready(function() {
 
     //If user has incorrectly entered address, here's the error modal
 
-    // Place this in Google Maps info:   $('#modal2').modal('open');
+    // Place this in Google Maps info: $('#modal2').modal('open');
 
     $('.modal').modal({
       dismissible: true, // Modal can be dismissed by clicking outside of the modal
