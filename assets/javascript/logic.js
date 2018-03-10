@@ -107,6 +107,7 @@ $( document ).ready(function() {
     
       $('#submit-button').on('click', function(){
         console.log('submit button clicked');
+        var address = $("#address").val().trim();
 
         // container sizes
         var small;
@@ -162,7 +163,8 @@ $( document ).ready(function() {
         acceptedItems.push(steel);
       }
       // checking if the accepted items and container size arrays arrays are empty and if not, pushing them to firebase
-      if (containerSize.length > 0 && acceptedItems.length > 0){
+      if (containerSize.length > 0 && acceptedItems.length > 0 && address.val.trim() === ""){
+
         console.log(containerSize, acceptedItems);
         database.ref().push({
           containerSize: containerSize,
@@ -177,5 +179,22 @@ $( document ).ready(function() {
       // }
       console.log(acceptedItems);
     })
+
+    //If user has incorrectly entered address, here's the error modal
+
+    $('#modal2').modal({
+      dismissible: true, // Modal can be dismissed by clicking outside of the modal
+      opacity: .5, // Opacity of modal background
+      inDuration: 300, // Transition in duration
+      outDuration: 200, // Transition out duration
+      startingTop: '4%', // Starting top style attribute
+      endingTop: '10%', // Ending top style attribute
+      ready: function(modal, trigger) { // Callback for Modal open. Modal and trigger parameters available.
+        alert("Ready");
+        console.log(modal, trigger);
+      },
+      complete: function() { alert('Closed'); } // Callback for Modal close
+    }
+  );
 
     }); // end of document ready function
