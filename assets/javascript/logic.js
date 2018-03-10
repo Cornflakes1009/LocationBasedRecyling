@@ -108,6 +108,8 @@ $( document ).ready(function() {
       $('#submit-button').on('click', function(){
         console.log('submit button clicked');
 
+        var address = $('#address').val().trim();
+
         // container sizes
         var small;
         var large;
@@ -166,7 +168,8 @@ $( document ).ready(function() {
         console.log(containerSize, acceptedItems);
         database.ref().push({
           containerSize: containerSize,
-          acceptedItems: acceptedItems
+          acceptedItems: acceptedItems,
+          address: address
       });
       }
       // checking if the accepted items array is empty and if not, pushing that to firebase
