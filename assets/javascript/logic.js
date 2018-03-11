@@ -175,7 +175,7 @@ $(document).ready(function () {
         } else {
           //need to open error modal here
           console.log("invalid address");
-          $('#modal2').modal();
+          $('#modal2').modal('open');
         }
       }
     }
@@ -188,9 +188,9 @@ $(document).ready(function () {
     console.log(acceptedItems);
   })
 
-  //If user has incorrectly entered address, here's the error modal
+  //This simply lets users to dismiss modals
 
-  $('#modal2').modal({
+  $('.modal').modal({
     dismissible: true, // Modal can be dismissed by clicking outside of the modal
     opacity: .5, // Opacity of modal background
     inDuration: 300, // Transition in duration
@@ -198,10 +198,9 @@ $(document).ready(function () {
     startingTop: '4%', // Starting top style attribute
     endingTop: '10%', // Ending top style attribute
     ready: function (modal, trigger) { // Callback for Modal open. Modal and trigger parameters available.
-      alert("Ready");
       console.log(modal, trigger);
     },
-    complete: function () { alert('Closed'); } // Callback for Modal close
+    complete: function () { } // Callback for Modal close
   }
   );
   database.ref().on('child_added', function (childSnapshot) {
