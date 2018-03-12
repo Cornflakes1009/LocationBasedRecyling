@@ -34,7 +34,7 @@ h1 {
     position: relative;
     z-index: 2;
     left: 35px;
-    top: 458px;
+    top: 495px;
     min-width: 135px;
     color: white;
     background-color: #f05a15;
@@ -58,6 +58,17 @@ h1 {
         font-size: 50px;
     }
  }
+ @media only screen and (max-width: 415px) {
+    #location-section {
+        height: 300px !important;
+    }
+    #near-you {
+        margin-top: -14px !important;
+    }
+    #add-location {
+        top: 545px !important;
+    }
+ }
  #near-you {
      text-align: center;
      margin-top: -25px;
@@ -71,3 +82,13 @@ h1 {
  .hr-separator {
      opacity: 0.3;
  }
+ #location-section {
+     overflow: auto;
+     height: 564px;
+ }
+ label {
+     font-size: 1rem !important;
+ }
+#submit-button:hover {
+    color: white !important;
+}
