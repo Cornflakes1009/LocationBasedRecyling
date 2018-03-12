@@ -58,3 +58,16 @@ h1 {
         font-size: 50px;
     }
  }
+ #near-you {
+     text-align: center;
+     margin-top: -25px;
+     margin-bottom: 10px;
+     padding: 8px;
+     background-color: white;
+ }
+ .bold-font {
+     font-weight: bold;
+ }
+ .hr-separator {
+     opacity: 0.3;
+ }
