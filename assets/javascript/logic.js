@@ -105,6 +105,7 @@ $(document).ready(function () {
     console.log('submit button clicked');
     event.preventDefault();
     var address = $("#address").val().trim();;
+    var locationName = $('#location-name').val().trim();
 
     // container sizes
     var small;
@@ -163,13 +164,14 @@ $(document).ready(function () {
     isAdd = true;
     codeAddress(address, containerSize, acceptedItems, isAdd, callback);
       function callback(address, containerSize, acceptedItems, isValid) {
-      if (containerSize.length > 0 && acceptedItems.length > 0 && address !== "") {
+      if (containerSize.length > 0 && acceptedItems.length > 0 && address !== "" && locationName !== "") {
         if (isValid) {
           console.log(containerSize, acceptedItems);
           database.ref().push({
             containerSize: containerSize,
             acceptedItems: acceptedItems,
-            address: address
+            address: address,
+            locationName: locationName
         
           })
         } else {
@@ -209,9 +211,27 @@ $(document).ready(function () {
     console.log('running');
     var newDiv = $("<div>");
     newDiv.addClass("col s12");
-    newDiv.text(childSnapshot.val().containerSize + childSnapshot.val().acceptedItems + childSnapshot.val().address);
-    $('#location-section').append(newDiv);
+    // newDiv.text(childSnapshot.val().locationName + '\n' + childSnapshot.val().address + childSnapshot.val().containerSize + childSnapshot.val().acceptedItems);
+    // newDiv.text(childSnapshot.val().locationName);
+    // $('#location-section').append(newDiv);
+    // newDiv.text(childSnapshot.val().address);
+    // $('#location-section').append(newDiv);
+    // newDiv.text(childSnapshot.val().containerSize);
+    // $('#location-section').append(newDiv);
+    // newDiv.text(childSnapshot.val().acceptedItems);
+    // $('#location-section').append(newDiv);
+    $('#location-section').append('<div class="bold-font">' + childSnapshot.val().locationName + '</div>');
+    $('#location-section').append('<div>' + 'Address: ' + childSnapshot.val().address + '</div>');
+    $('#location-section').append('<div>' +  'Container Size: ' + childSnapshot.val().containerSize + '</div>');
+    $('#location-section').append('<div>' + 'Accepted: ' + childSnapshot.val().acceptedItems + '</div>');
+    $('#location-section').append('<hr class="hr-separator">');
+
+
 
   });
 
+
+  $('.crash').on('click', function () {
+    $('html').addClass('animated hinge');
+})
 }); // end of document ready function

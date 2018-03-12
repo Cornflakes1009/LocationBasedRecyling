@@ -12,6 +12,7 @@
     <link href="https://fonts.googleapis.com/css?family=Arvo|Open+Sans" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
     <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <!---Joe commented out for testing-->
     <!---<script type='text/javascript' src='//platform-api.sharethis.com/js/sharethis.js#property=5aa428092436c400135c0db9&product=sticky-share-buttons' async='async'></script>-->
     <title>Disposal Finder</title>
@@ -21,8 +22,11 @@
 
     <div id="" class="section title">
         <h1 class="center">
-            <i class="fas fa-recycle green-color"></i> Disposal Finder</h1>
-        
+            <a class='crash' href="#">
+                <i class="fas fa-recycle green-color "></i>
+            </a>
+            Disposal Finder</h1>
+
     </div>
 
     <div class="container">
@@ -31,18 +35,22 @@
 
         </div>
         <div class="row">
-            <div id="location-section" class="col s12 m3 title">Locations Near You</div>
+            <div id="location-section" class="col s12 m3 title">
+                
+               <h5>Locations Near You</h5> 
+               <hr id="hr-bold">
+            </div>
 
             <!-- <div id="google-map-section" class="col s12 m9"> -->
             <!-- Modal Trigger -->
-            <div>
+            <div class="col s12 m9"> <!--removed the classes from div on 49 -->
                 <a href="#!" class="modal-action modal-close"></a>
                 <!-- <a class="waves-effect waves-light  modal-trigger" href="#modal1"> -->
                 <a class="waves-effect waves-light  modal-trigger" id="add-location" href="#modal1">Add</a>
                 <!-- <img class="modal-action" id="map" src='googleMapsPlaceholder.png' alt="Google Maps"> -->
-
+                <h4 id="near-you">Recycling Locations Near You</h4>
                 <!-- removed from line 32 -->
-                <div id="map" class="col s12 m9">
+                <div id="map" >
 
                     <!--removed from live 44 right above the modeal id -->
 
@@ -82,9 +90,13 @@
                         </form>
                     </div>
                     <div class="input-field col s12">
+                        <input id="location-name" type="text" class="validate">
+                        <label for="location-name">Location Name</label>
+                    </div>
+                    <div class="input-field col s12">
                         <input id="address" type="text" class="validate">
                         <label for="address">Address</label>
-                      </div>
+                    </div>
                     <div class="modal-footer">
                         <a href="#!" class="modal-action modal-close waves-effect waves-green btn btn-flat" id='submit-button'>Submit</a>
                     </div>
