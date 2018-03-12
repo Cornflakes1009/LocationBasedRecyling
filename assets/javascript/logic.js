@@ -37,7 +37,7 @@ var isAdd;
         infoWindow.open(map);
       }
     
-      function codeAddress(address, containerSize, acceptedItems, isAdd, callback) {
+      function codeAddress(locationName, address, containerSize, acceptedItems, isAdd, callback) {
         //var address = document.getElementById('address').value;
         var isValid;
         geocoder.geocode( { 'address': address}, function(results, status) {
@@ -45,9 +45,16 @@ var isAdd;
                        
             var marker = new google.maps.Marker({
                 map: map,
-                position: results[0].geometry.location
+                position: results[0].geometry.location,
+                customName: locationName,
+                customAddress: address
             })
             isValid = true;
+            google.maps.event.addListener(marker, 'click', function() {
+              infoWindow.setContent('<div><strong>' + this.customName + '</strong><br>' +
+                this.customAddress + '</div>');
+              infoWindow.open(map, this);
+            });
           } else {
             isValid = false;
             
@@ -56,6 +63,7 @@ var isAdd;
           callback(address, containerSize, acceptedItems, isValid)
           }
         });
+
       }
 
 
@@ -162,7 +170,7 @@ $(document).ready(function () {
     }
     // checking if the accepted items and container size arrays arrays are empty and if not, pushing them to firebase
     isAdd = true;
-    codeAddress(address, containerSize, acceptedItems, isAdd, callback);
+    codeAddress(locationName, address, containerSize, acceptedItems, isAdd, callback);
       function callback(address, containerSize, acceptedItems, isValid) {
       if (containerSize.length > 0 && acceptedItems.length > 0 && address !== "" && locationName !== "") {
         if (isValid) {
@@ -207,7 +215,8 @@ $(document).ready(function () {
   );
   database.ref().on('child_added', function (childSnapshot) {
     isAdd = false;
-    codeAddress(childSnapshot.val().address, isAdd);
+    console.log(childSnapshot.key);
+    codeAddress(childSnapshot.val().locationName, childSnapshot.val().address, isAdd);
     console.log('running');
     var newDiv = $("<div>");
     newDiv.addClass("col s12");
