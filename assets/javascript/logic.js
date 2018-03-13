@@ -66,26 +66,6 @@ var isAdd;
 
       }
 
-
-    //If user has incorrectly entered address, here's the error modal
-
-    // Place this in Google Maps info: $('#modal2').modal('open');
-
-    $('.modal').modal({
-      dismissible: true, // Modal can be dismissed by clicking outside of the modal
-      opacity: .5, // Opacity of modal background
-      inDuration: 300, // Transition in duration
-      outDuration: 200, // Transition out duration
-      startingTop: '4%', // Starting top style attribute
-      endingTop: '10%', // Ending top style attribute
-      ready: function(modal, trigger) { // Callback for Modal open. Modal and trigger parameters available.
-       
-      },
-      complete: function() {  } // Callback for Modal close
-
-
-    })
-
 //end of code for adding markers for recylcing centers
 
 
@@ -213,6 +193,7 @@ $(document).ready(function () {
     complete: function () { } // Callback for Modal close
   }
   );
+  
   database.ref().on('child_added', function (childSnapshot) {
     isAdd = false;
     console.log(childSnapshot.key);
