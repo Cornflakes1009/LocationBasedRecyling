@@ -237,6 +237,42 @@ $(document).ready(function () {
 
   });
 
+  //Call to openweathermap to get the current weather
+  var queryURL = "https://api.openweathermap.org/data/2.5/weather?" +
+      "q=kansas city, missouri&units=imperial&appid=fcb270f477566d619fbad4366058a84a";
+
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+      })
+      .then(function(response) {
+
+        var imgIcon = response.weather[0].icon;
+        var currentTemp = Math.floor(response.main.temp);
+        var highTemp = Math.floor(response.main.temp_max);
+        var lowTemp = Math.floor(response.main.temp_min);
+
+        var tempDiv = $("<div>");
+        tempDiv.addClass("col s12 m4");
+        tempDiv.html("Current Temperature (F): " + currentTemp + 
+                    "<br />" + response.weather[0].description);
+
+        var weatherIconDiv = $("<div>");
+        weatherIconDiv.addClass("col s12 m4 icon");
+        var weatherIcon = $("<img>");
+        weatherIcon.attr("src", "http://openweathermap.org/img/w/" + imgIcon + ".png");
+
+        var tempRangeDiv = $("<div>");
+        tempRangeDiv.addClass("col s12 m4");
+        tempRangeDiv.html("High Temperature (F): " + highTemp + 
+                    "<br />" + "Low Temperature (F): " + lowTemp);
+
+        // Transfer content to HTML
+        $("#weather-section").append(tempDiv);
+        $("#weather-section").append(weatherIconDiv);
+        $(".icon").append(weatherIcon);
+        $("#weather-section").append(tempRangeDiv);
+      });
 
   $('.crash').on('click', function () {
     $('html').addClass('animated hinge');

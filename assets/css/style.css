@@ -42,6 +42,11 @@ h1 {
     text-align: center;
     padding: 2px 0px;
  }
+
+ #weather-section {
+     background-color: #ffffff;
+ }
+
  /* Need work!!! 792 600 479 */ 
  @media only screen and (max-width: 792px) {
     h1 {
