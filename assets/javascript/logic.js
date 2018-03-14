@@ -263,7 +263,7 @@ $(document).ready(function () {
         weatherIcon.attr("src", "http://openweathermap.org/img/w/" + imgIcon + ".png");
 
         var tempRangeDiv = $("<div>");
-        tempRangeDiv.addClass("col s12 m4");
+        tempRangeDiv.addClass("col s12 m4 temp");
         tempRangeDiv.html("High Temperature (F): " + highTemp + 
                     "<br />" + "Low Temperature (F): " + lowTemp);
 
