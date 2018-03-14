@@ -71,7 +71,7 @@ h1 {
  }
  #near-you {
      text-align: center;
-     margin-top: -25px;
+     margin-top: -26px;
      margin-bottom: 10px;
      padding: 8px;
      background-color: white;
@@ -91,4 +91,7 @@ h1 {
  }
 #submit-button:hover {
     color: white !important;
+}
+.red-text {
+    color: red;
 }
