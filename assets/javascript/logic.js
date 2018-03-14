@@ -152,23 +152,40 @@ $(document).ready(function () {
     isAdd = true;
     codeAddress(locationName, address, containerSize, acceptedItems, isAdd, callback);
       function callback(address, containerSize, acceptedItems, isValid) {
-      if (containerSize.length > 0 && acceptedItems.length > 0 && address !== "" && locationName !== "") {
-        if (isValid) {
-          console.log(containerSize, acceptedItems);
+      if (containerSize.length > 0 && acceptedItems.length > 0 && address !== "" && locationName !== "" && isValid) {
           database.ref().push({
             containerSize: containerSize,
             acceptedItems: acceptedItems,
             address: address,
             locationName: locationName
-        
           })
-        } else {
-          //need to open error modal here
-          console.log("invalid address");
-          $('#modal2').modal('open');
-        }
+      } else if (containerSize.length < 1) {
+        $('#error-message').text("Missing Container Size");
+        $('#error-message-text').addClass('red-text');
+        $('#error-message-text').text("Please check at least one container size.");
+        $('#modal2').modal('open');
+      } else if (acceptedItems.length < 1) {
+        $('#error-message').text("Missing Accepted Items");
+        $('#error-message-text').addClass('red-text');
+        $('#error-message-text').text("Please check at least one item accepted.");
+        $('#modal2').modal('open');
+      } else if (address === '') {
+        $('#error-message').text("Missing Address");
+        $('#error-message-text').addClass('red-text');
+        $('#error-message-text').text("Please enter an address.");
+        $('#modal2').modal('open');
+      } else if (locationName === '') {
+        $('#error-message').text("Missing Location Name");
+        $('#error-message-text').addClass('red-text');
+        $('#error-message-text').text("Please enter a location name.");
+        $('#modal2').modal('open');
+      } else {
+        $('#error-message').text("Invalid Address");
+        $('#error-message-text').addClass('red-text');
+        $('#error-message-text').text("Please enter a valid address");
+        $('#modal2').modal('open');
       }
-    }
+    } 
     // checking if the accepted items array is empty and if not, pushing that to firebase
     // if (acceptedItems !== []){
     //   database.ref().push({
@@ -212,8 +229,8 @@ $(document).ready(function () {
     // $('#location-section').append(newDiv);
     $('#location-section').append('<div class="bold-font">' + childSnapshot.val().locationName + '</div>');
     $('#location-section').append('<div>' + 'Address: ' + childSnapshot.val().address + '</div>');
-    $('#location-section').append('<div>' +  'Container Size: ' + childSnapshot.val().containerSize + '</div>');
-    $('#location-section').append('<div>' + 'Accepted: ' + childSnapshot.val().acceptedItems + '</div>');
+    $('#location-section').append('<div>' +  'Container Size: ' + childSnapshot.val().containerSize.join(", ") + '</div>');
+    $('#location-section').append('<div>' + 'Accepted: ' + childSnapshot.val().acceptedItems.join(", ") + '</div>');
     $('#location-section').append('<hr class="hr-separator">');
 
 
