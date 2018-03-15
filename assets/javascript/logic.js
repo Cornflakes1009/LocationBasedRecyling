@@ -65,12 +65,9 @@ var isAdd;
         });
 
       }
-
 //end of code for adding markers for recylcing centers
 
-
 $(document).ready(function () {
-
 
   var config = {
     apiKey: "AIzaSyB7Tjvl7pf3Acdlon_3pUL0OdECPOAIjsw",
@@ -193,15 +190,7 @@ $(document).ready(function () {
         $('#modal2').modal('open');
       }
     } 
-    // checking if the accepted items array is empty and if not, pushing that to firebase
-    // if (acceptedItems !== []){
-    //   database.ref().push({
-    //     acceptedItems: acceptedItems
-    // });
-    // }
-    console.log(acceptedItems);
   })
-
   //This simply lets users to dismiss modals
 
   $('.modal').modal({
@@ -225,23 +214,11 @@ $(document).ready(function () {
     console.log('running');
     var newDiv = $("<div>");
     newDiv.addClass("col s12");
-    // newDiv.text(childSnapshot.val().locationName + '\n' + childSnapshot.val().address + childSnapshot.val().containerSize + childSnapshot.val().acceptedItems);
-    // newDiv.text(childSnapshot.val().locationName);
-    // $('#location-section').append(newDiv);
-    // newDiv.text(childSnapshot.val().address);
-    // $('#location-section').append(newDiv);
-    // newDiv.text(childSnapshot.val().containerSize);
-    // $('#location-section').append(newDiv);
-    // newDiv.text(childSnapshot.val().acceptedItems);
-    // $('#location-section').append(newDiv);
     $('#location-section').append('<div class="bold-font">' + childSnapshot.val().locationName + '</div>');
     $('#location-section').append('<div>' + 'Address: ' + childSnapshot.val().address + '</div>');
     $('#location-section').append('<div>' +  'Container Size: ' + childSnapshot.val().containerSize.join(", ") + '</div>');
     $('#location-section').append('<div>' + 'Accepted: ' + childSnapshot.val().acceptedItems.join(", ") + '</div>');
     $('#location-section').append('<hr class="hr-separator">');
-
-
-
   });
 
   //Call to openweathermap to get the current weather
@@ -259,17 +236,17 @@ $(document).ready(function () {
         var highTemp = Math.floor(response.main.temp_max);
         var lowTemp = Math.floor(response.main.temp_min);
 
-        var tempDiv = $("<div>");
+        var tempDiv = $("<div id='first-weather-div'>");
         tempDiv.addClass("col s12 m4");
         tempDiv.html("Current Temperature (F): " + currentTemp + 
                     "<br />" + response.weather[0].description);
 
-        var weatherIconDiv = $("<div>");
+        var weatherIconDiv = $("<div id='second-weather-div'>");
         weatherIconDiv.addClass("col s12 m4 icon");
         var weatherIcon = $("<img>");
         weatherIcon.attr("src", "http://openweathermap.org/img/w/" + imgIcon + ".png");
 
-        var tempRangeDiv = $("<div>");
+        var tempRangeDiv = $("<div id='third-weather-div'>");
         tempRangeDiv.addClass("col s12 m4 temp");
         tempRangeDiv.html("High Temperature (F): " + highTemp + 
                     "<br />" + "Low Temperature (F): " + lowTemp);

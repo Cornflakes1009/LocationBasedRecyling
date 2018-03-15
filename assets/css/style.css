@@ -118,5 +118,25 @@ img {
     #add-location {
         top: 545px !important;
     }
+    .borders-for-all {
+        border: 0px solid rgb(145, 137, 137);
+    }
+    #first-weather-div {
+        border-top: 1px solid rgb(145, 137, 137);
+        border-left: 1px solid rgb(145, 137, 137);
+        border-right: 1px solid rgb(145, 137, 137);
+        border-bottom: 0px solid white!important;
+    }
+    #second-weather-div {
+        border-left: 1px solid rgb(145, 137, 137);
+        border-right: 1px solid rgb(145, 137, 137);
+        border-top: 0px solid white;
+    }
+    #third-weather-div {
+        border-left: 1px solid rgb(145, 137, 137);
+        border-right: 1px solid rgb(145, 137, 137);
+        border-bottom: 1px solid rgb(145, 137, 137);
+        
+    }
     
  }
