@@ -159,6 +159,13 @@ $(document).ready(function () {
             address: address,
             locationName: locationName
           })
+        // clearing out the modal ////////////////////////
+        $('input[type=checkbox]').each(function () {
+          this.checked = false;
+        });
+        $('#address').val('');
+        $("#location-name").val('');
+        //////////////////////////////////////////////////
       } else if (containerSize.length < 1) {
         $('#error-message').text("Missing Container Size");
         $('#error-message-text').addClass('red-text');
