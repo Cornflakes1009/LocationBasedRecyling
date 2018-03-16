@@ -1,75 +1,69 @@
-
 var map;
 var infoWindow;
 var geocoder;
 var isAdd;
-function initMap() {
-  //added geocoder to this function
-  geocoder = new google.maps.Geocoder();
-  map = new google.maps.Map(document.getElementById('map'), {
-    center: { lat: 39.102115, lng: -94.582554 },
-    zoom: 10
-  });
-  infoWindow = new google.maps.InfoWindow;
+      function initMap() {
+        //added geocoder to this function
+        geocoder = new google.maps.Geocoder();
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 39.102115, lng: -94.582554},
+          zoom: 10
+        });
+        infoWindow = new google.maps.InfoWindow;
 
-  // Try HTML5 geolocation.
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(function (position) {
-      var pos = {
-        lat: position.coords.latitude,
-        lng: position.coords.longitude
-      };
+        // Try HTML5 geolocation.
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+            var pos = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
 
-      infoWindow.setPosition(pos);
-      infoWindow.setContent('Location found.');
-      infoWindow.open(map);
-      map.setCenter(pos);
+            infoWindow.setPosition(pos);
+            infoWindow.setContent('Location found.');
+            infoWindow.open(map);
+            map.setCenter(pos);
 
-    })
-  }
-}
-
-function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-  infoWindow.setPosition(pos);
-  infoWindow.setContent(browserHasGeolocation ?
-    'Error: The Geolocation service failed.' :
-    'Error: Your browser doesn\'t support geolocation.');
-  infoWindow.open(map);
-}
-
-function codeAddress(locationName, address, containerSize, acceptedItems, isAdd, callback) {
-  //var address = document.getElementById('address').value;
-  var isValid;
-  geocoder.geocode({ 'address': address }, function (results, status) {
-    if (status == 'OK') {
-
-      var marker = new google.maps.Marker({
-        map: map,
-        position: results[0].geometry.location,
-        customName: locationName,
-        customAddress: address
-      })
-      isValid = true;
-      google.maps.event.addListener(marker, 'click', function () {
-        infoWindow.setContent('<div><strong>' + this.customName + '</strong><br>' +
-          this.customAddress + '</div>');
-        infoWindow.open(map, this);
-      });
-    } else {
-      isValid = false;
-
-    }
-    if (isAdd) {
-      callback(address, containerSize, acceptedItems, isValid)
-    }
-  });
-
-<<<<<<< HEAD
-}
-
-=======
+          })
+        } 
       }
->>>>>>> 66efdc5fe96b64d40087078a2b8aebc08c4083cd
+
+      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        infoWindow.setPosition(pos);
+        infoWindow.setContent(browserHasGeolocation ?
+                              'Error: The Geolocation service failed.' :
+                              'Error: Your browser doesn\'t support geolocation.');
+        infoWindow.open(map);
+      }
+    
+      function codeAddress(locationName, address, containerSize, acceptedItems, isAdd, callback) {
+        //var address = document.getElementById('address').value;
+        var isValid;
+        geocoder.geocode( { 'address': address}, function(results, status) {
+          if (status == 'OK') {
+                       
+            var marker = new google.maps.Marker({
+                map: map,
+                position: results[0].geometry.location,
+                customName: locationName,
+                customAddress: address
+            })
+            isValid = true;
+            google.maps.event.addListener(marker, 'click', function() {
+              infoWindow.setContent('<div><strong>' + this.customName + '</strong><br>' +
+                this.customAddress + '</div>');
+              infoWindow.open(map, this);
+            });
+          } else {
+            isValid = false;
+            
+          }
+          if (isAdd) {
+          callback(address, containerSize, acceptedItems, isValid)
+          }
+        });
+
+      }
 //end of code for adding markers for recylcing centers
 
 $(document).ready(function () {
@@ -153,24 +147,13 @@ $(document).ready(function () {
     // checking if the accepted items and container size arrays arrays are empty and if not, pushing them to firebase
     isAdd = true;
     codeAddress(locationName, address, containerSize, acceptedItems, isAdd, callback);
-<<<<<<< HEAD
-    function callback(address, containerSize, acceptedItems, isValid) {
-      if (containerSize.length > 0 && acceptedItems.length > 0 && address !== "" && locationName !== "") {
-        if (isValid) {
-          console.log(containerSize, acceptedItems);
-=======
       function callback(address, containerSize, acceptedItems, isValid) {
       if (containerSize.length > 0 && acceptedItems.length > 0 && address !== "" && locationName !== "" && isValid) {
->>>>>>> 66efdc5fe96b64d40087078a2b8aebc08c4083cd
           database.ref().push({
             containerSize: containerSize,
             acceptedItems: acceptedItems,
             address: address,
             locationName: locationName
-<<<<<<< HEAD
-
-=======
->>>>>>> 66efdc5fe96b64d40087078a2b8aebc08c4083cd
           })
         // clearing out the modal ////////////////////////
         $('input[type=checkbox]').each(function () {
@@ -205,28 +188,9 @@ $(document).ready(function () {
         $('#error-message-text').text("Please enter a valid address");
         $('#modal2').modal('open');
       }
-<<<<<<< HEAD
-      else {
-        //need to open error modal here
-        console.log("invalid address");
-        $('#modal2').modal('open');
-      }
-    }
-    // checking if the accepted items array is empty and if not, pushing that to firebase
-    // if (acceptedItems !== []){
-    //   database.ref().push({
-    //     acceptedItems: acceptedItems
-    // });
-    // }
-    console.log(acceptedItems);
-  })
-
-  //This lets users to dismiss modals
-=======
     } 
   })
   //This simply lets users to dismiss modals
->>>>>>> 66efdc5fe96b64d40087078a2b8aebc08c4083cd
 
   $('.modal').modal({
     dismissible: true, // Modal can be dismissed by clicking outside of the modal
@@ -241,7 +205,7 @@ $(document).ready(function () {
     complete: function () { } // Callback for Modal close
   }
   );
-
+  
   database.ref().on('child_added', function (childSnapshot) {
     isAdd = false;
     console.log(childSnapshot.key);
@@ -251,13 +215,8 @@ $(document).ready(function () {
     newDiv.addClass("col s12");
     $('#location-section').append('<div class="bold-font">' + childSnapshot.val().locationName + '</div>');
     $('#location-section').append('<div>' + 'Address: ' + childSnapshot.val().address + '</div>');
-<<<<<<< HEAD
-    $('#location-section').append('<div>' + 'Container Size: ' + childSnapshot.val().containerSize + '</div>');
-    $('#location-section').append('<div>' + 'Accepted: ' + childSnapshot.val().acceptedItems + '</div>');
-=======
     $('#location-section').append('<div>' +  'Container Size: ' + childSnapshot.val().containerSize.join(", ") + '</div>');
     $('#location-section').append('<div>' + 'Accepted: ' + childSnapshot.val().acceptedItems.join(", ") + '</div>');
->>>>>>> 66efdc5fe96b64d40087078a2b8aebc08c4083cd
     $('#location-section').append('<hr class="hr-separator">');
   });
 
@@ -300,5 +259,5 @@ $(document).ready(function () {
 
   $('.crash').on('click', function () {
     $('html').addClass('animated hinge');
-  })
+})
 }); // end of document ready function
