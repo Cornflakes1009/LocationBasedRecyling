@@ -3,9 +3,21 @@
 
 <head>
     <meta charset="UTF-8">
+<<<<<<< HEAD
 
     <head profile="http://www.w3.org/2005/10/profile">
         <link rel="shortcut" href="https://use.fontawesome.com/releases/v5.0.8/svgs/solid/recycle.svg">
+=======
+    <!-- <head profile="http://www.w3.org/2005/10/profile">
+        <link rel="shortcut icon" 
+              href="https://use.fontawesome.com/releases/v5.0.8/svgs/solid/recycle.svg"> -->
+              
+    <link rel="shortcut icon" href="assets/images/icons8-recycle-48.png" />
+              
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+>>>>>>> 66efdc5fe96b64d40087078a2b8aebc08c4083cd
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -22,7 +34,16 @@
         <title>Disposal Finder</title>
     </head>
 
+<<<<<<< HEAD
     <body>
+=======
+    <div id="" class="section title borders-for-all">
+        <h1 class="center">
+            <a class='crash' href="#">
+                <i class="fas fa-recycle green-color "></i>
+            </a>
+            Disposal Finder</h1>
+>>>>>>> 66efdc5fe96b64d40087078a2b8aebc08c4083cd
 
         <div id="" class="section title">
             <h1 class="center">
@@ -37,13 +58,35 @@
 
             <div class="row">
 
+<<<<<<< HEAD
+=======
+        </div>
+        <div class="row">
+            <div id="location-section" class="col s12 m3 title borders-for-all">
+                
+               <h5 class="">Locations Near You</h5> 
+               <hr id="hr-bold">
+>>>>>>> 66efdc5fe96b64d40087078a2b8aebc08c4083cd
             </div>
             <div class="row">
                 <div id="location-section" class="col s12 m3 title">
 
+<<<<<<< HEAD
                     <h5>Locations Near You</h5>
                     <hr id="hr-bold">
                 </div>
+=======
+            <!-- <div id="google-map-section" class="col s12 m9"> -->
+            <!-- Modal Trigger -->
+            <div class="col s12 m9 "> <!--removed the classes from div on 49 -->
+                <a href="#!" class="modal-action modal-close"></a>
+                <!-- <a class="waves-effect waves-light  modal-trigger" href="#modal1"> -->
+                <a class="waves-effect waves-light  modal-trigger" id="add-location" href="#modal1">Add</a>
+                <!-- <img class="modal-action" id="map" src='googleMapsPlaceholder.png' alt="Google Maps"> -->
+                <h4 class="borders-for-all" id="near-you">Recycling Locations Near You</h4>
+                <!-- removed from line 32 -->
+                <div id="map" >
+>>>>>>> 66efdc5fe96b64d40087078a2b8aebc08c4083cd
 
                 <!-- <div id="google-map-section" class="col s12 m9"> -->
                 <!-- Modal Trigger -->
@@ -59,7 +102,48 @@
 
                         <!--removed from live 44 right above the modeal id -->
 
+<<<<<<< HEAD
 
+=======
+                </div>
+            </div>
+
+            <!-- Modal for Recycling Type form -->
+            <div class="row">
+
+                <div id="modal1" class="modal bottom-sheet borders-for-all">
+                    <div class="modal-content col m6 center">
+                        <h4 class="">Accepted Items</h4>
+                        <form action="/action_page.php" method="get">
+                            <label for="paper">Paper</label>
+                            <input class='check-box ' type="checkbox" name="paper" id="paper" value="paper">
+                            <label for="cardboard">Cardboard</label>
+                            <input class='check-box ' type="checkbox" name="cardboard" id="cardboard" value="cardboard">
+                            <label for="plastic">Plastic</label>
+                            <input class='check-box ' type="checkbox" name="plastic" id="plastic" value="plastic">
+                            <label for="glass">Glass</label>
+                            <input class='check-box ' type="checkbox" name="glass" id="glass" value="glass">
+                            <label for="aluminum">Aluminum</label>
+                            <input class='check-box ' type="checkbox" name="aluminum" id="aluminum" value="aluminum">
+                            <label for="steel">Steel</label>
+                            <input class='check-box ' type="checkbox" name="steel" id="steel" value="steel">
+                        </form>
+                    </div>
+                    <div class="modal-content col m6 center">
+                        <h4 class="">Recepticle Type</h4>
+                        <form action="/action_page.php" method="get">
+                            <label for="small">Small Can</label>
+                            <input class='check-box ' type="checkbox" name="small" id="small" value="small">
+                            <label for="large">Large Container</label>
+                            <input class='check-box ' type="checkbox" name="large" id="large" value="large">
+                            <label for="rolloff">Rolloff</label>
+                            <input class='check-box ' type="checkbox" name="rolloff" id="rolloff" value="rolloff">
+                        </form>
+                    </div>
+                    <div class="input-field col s12">
+                        <input id="location-name" type="text" class="validate">
+                        <label for="location-name">Location Name</label>
+>>>>>>> 66efdc5fe96b64d40087078a2b8aebc08c4083cd
                     </div>
                 </div>
                 <!-- Modal for Recycling Type form -->
@@ -113,6 +197,7 @@
                 <!--Ted thinks this is not necessary since we can trigger modal programmatically in js
             <a class="waves-effect waves-light btn modal-trigger" href="#modal2"></a>-->
 
+<<<<<<< HEAD
                 <!-- Modal Structure -->
                 <div id="modal2" class="modal">
                     <div class="modal-content">
@@ -123,11 +208,29 @@
                         <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Dismiss
                         </a>
                     </div>
+=======
+            <!-- Modal Structure -->
+            <div id="modal2" class="modal borders-for-all">
+                <div class="modal-content">
+                    <h4 id="error-message"></h4>
+                    <p id="error-message-text"></p>
+                </div>
+                <div class="modal-footer">
+                    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Dismiss
+                    </a>
+>>>>>>> 66efdc5fe96b64d40087078a2b8aebc08c4083cd
                 </div>
 
 
 
+<<<<<<< HEAD
             </div>
+=======
+        </div>
+        <div class="row borders-for-all" id="weather-section">
+
+        </div>
+>>>>>>> 66efdc5fe96b64d40087078a2b8aebc08c4083cd
 
         </div>
         <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="

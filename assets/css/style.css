@@ -42,6 +42,56 @@ h1 {
     text-align: center;
     padding: 2px 0px;
  }
+
+ #weather-section {
+     background-color: #ffffff;
+     text-align: center;
+     margin-top: -31px;
+     margin-right: 0px;
+     line-height: 300%;
+     height: 100px;
+ }
+img {
+    height: 100px;
+    width: 100px;
+}
+ #near-you {
+     text-align: center;
+     margin-top: -26px;
+     margin-bottom: 10px;
+     padding: 8px;
+     background-color: white;
+ }
+ .bold-font {
+     font-weight: bold;
+ }
+ .hr-separator {
+     opacity: 0.3;
+ }
+ #location-section {
+     overflow: auto;
+     height: 564px;
+ }
+ label {
+     font-size: 1rem !important;
+ }
+#submit-button:hover {
+    color: white !important;
+}
+.red-text {
+    color: red;
+}
+.icon {
+    background-color: white;
+    line-height: 72%;
+    height: 90px;
+}
+.temp {
+    background-color: white;
+}
+.borders-for-all {
+    border: 1px solid rgb(145, 137, 137);
+}
  /* Need work!!! 792 600 479 */ 
  @media only screen and (max-width: 792px) {
     h1 {
@@ -68,27 +118,25 @@ h1 {
     #add-location {
         top: 545px !important;
     }
+    .borders-for-all {
+        border: 0px solid rgb(145, 137, 137);
+    }
+    #first-weather-div {
+        border-top: 1px solid rgb(145, 137, 137);
+        border-left: 1px solid rgb(145, 137, 137);
+        border-right: 1px solid rgb(145, 137, 137);
+        border-bottom: 0px solid white!important;
+    }
+    #second-weather-div {
+        border-left: 1px solid rgb(145, 137, 137);
+        border-right: 1px solid rgb(145, 137, 137);
+        border-top: 0px solid white;
+    }
+    #third-weather-div {
+        border-left: 1px solid rgb(145, 137, 137);
+        border-right: 1px solid rgb(145, 137, 137);
+        border-bottom: 1px solid rgb(145, 137, 137);
+        
+    }
+    
  }
- #near-you {
-     text-align: center;
-     margin-top: -25px;
-     margin-bottom: 10px;
-     padding: 8px;
-     background-color: white;
- }
- .bold-font {
-     font-weight: bold;
- }
- .hr-separator {
-     opacity: 0.3;
- }
- #location-section {
-     overflow: auto;
-     height: 564px;
- }
- label {
-     font-size: 1rem !important;
- }
-#submit-button:hover {
-    color: white !important;
-}
